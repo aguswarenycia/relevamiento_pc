@@ -109,7 +109,7 @@ CREATE TABLE `usuarios` (
   `nombre` varchar(250) NOT NULL,
   `apellido` varchar(250) NOT NULL,
   `usuario` varchar(50) NOT NULL,
-  `contraseña` varchar(50) NOT NULL,
+  `contrasenia` varchar(50) NOT NULL,
   `perfil_id` int(11) NOT NULL,
   `baja` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
