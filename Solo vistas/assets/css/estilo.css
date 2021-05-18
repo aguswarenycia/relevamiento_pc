@@ -4,13 +4,13 @@ body {
 }
 
 body {
-  background-color: rgb(212, 228, 235) !important;
+  background-color: rgb(184, 217, 231) !important;
 }
 
 
 .main-head{
   height: 150px;
-  background: ##ffffff;
+  background: #ffffff;
  
 }
 /*Para la vista del login, la imagen*/
@@ -96,33 +96,21 @@ background-size: cover;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgb(19, 19, 19);
-  color: white;
+  background-color: rgb(238, 238, 238);
+  color: rgb(15, 15, 15);
   text-align: center;
+  padding-top: 5px;
 }
 
 /*Para el header---------------------------------------------------------------------------------*/
 
-.header2 {
-  position: fixed;
-  height: 100px;
-}
-
-.header2 .logo {
-  line-height: 100px;
-  font-size: 30px;
-}
-
-.header2 nav {
-  line-height: 100px;
-}
 
 /*Para el buscador-------------------------------------------------------------------*/
 
   /*Para la busqueda------------------------------------------------------*/
   .card {
     border: none;
-    background: #53adf6 !important;
+    background: transparent !important;
     
 }
 
@@ -202,7 +190,7 @@ a:link {
 
 .card h3{
   
-  color: #ffffff !important;
+  color: #303030 !important;
 }
 
 .mg-text span {
@@ -215,59 +203,6 @@ a:link {
 
 
 
-/*Para el navbar*/
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  
-}
-
-li {
-  float: left;
-}
-
-li a, .dropbtn {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover, .dropdown:hover .dropbtn {
-  background-color: rgb(79, 205, 255);
-}
-
-li.dropdown {
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: fixed;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1;}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
 
 
 /**para el side bar*/
@@ -275,11 +210,14 @@ li.dropdown {
 .sidebar {
   margin: 0;
   padding: 0;
+  padding-top: 5%;
   width: 200px;
   background-color: #343a40;
-  position: relative;
+  position: absolute;
   height: 100%;
   overflow: auto;
+
+  margin-bottom: 0%;
 }
 
 .sidebar a {
@@ -332,3 +270,9 @@ div.content {
 .bg-dark {
   background-color: #333333!important;
 }
+
+/*Para el navbar sin boostrap*/
+
+
+
+
