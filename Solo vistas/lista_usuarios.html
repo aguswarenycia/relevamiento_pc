@@ -97,15 +97,15 @@
 
         <div class="sidebar">
           
-            <a href="#">Lista de PC</a>
-            <a href="#">Nueva PC</a>
-            <a href="#">Buscar PC</a>
+            <a href="#">Lista de Usuarios</a>
+            <a href="#">Nuevo Usuario</a>
+            <a href="#">Buscar Usuario</a>
           </div>
           
           <div class="content">
             <div class="container">
               <div class="well">
-                <h1>Todas las PC</h1>
+                <h1>Todos los usuarios</h1>
               </div>
               <a type="button" class="btn btn-primary" href="#">Agregar</a>
               <a type="button" class="btn btn-dark" href="#">ELIMINADOS</a>
@@ -114,34 +114,19 @@
               <div class="table-responsive-sm">
                 <table class="table table-light table-hover">
                   <thead>
-                    <th>
-                      <th>IP</th>
-                      <th>IP publica</th>
-                      <th>Arquitectura</th>
-                      
-                      <th>Procesador</th> <!--aca podemos contar la cantidad de ip de esa farmacia y mostrar-->
-                      <th>cores fisicos</th>
-                     
-                      <th>cores totales</th>
-                      <th>ram total</th>
-                      <th>ram usada</th>
-                      <th>ram disponible</th>
-                      <th>espacio total C</th>
-                      <th>espacio usado C</th>
-                      <th>espacio disponible C</th>
-                      <th> espacio total D</th>
-                      <th>espacio usado D</th>
-                      <th>espacio disponible D</th>
-                    <th>anydesk</th>
-                    <th>id anydesk</th>
-                    </th>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Apellido</th>
+                      <th>Usuario</th>
+                       <th>Eliminado</th>
+                      <th>Modificar</th>
+                    </tr>
                   </thead>
                   <!--
                   <tbody>
                     
                       <tr>-->
                         <!--Inicio Codigo en php para guiarse-->
-                        
                         <!--<td><?php echo $row->id;  ?></td>
                         <td><?php echo $row->descripcion;  ?></td>
                         <td><?php echo $row->categoria_id;  ?></td>
@@ -151,7 +136,6 @@
                         <td><?php echo $row->eliminado;  ?></td>
                         <td><a href="<?php echo base_url("modifica_producto/$row->id"); ?>">Modificar</a>|<a href="<?php echo base_url("baja_producto/$row->id"); ?>">Eliminar</a></td>
                         -->
-
                         <!--fin codigo para php para guiarse -->
                       <!--</tr>
                   
