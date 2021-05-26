@@ -1,4 +1,4 @@
-#importar librerias
+# Importar librerias
 
 import socket #libreria para saber nombre del PC
 import platform #libreria para obtener especificaciones de hardware
@@ -7,24 +7,22 @@ import psutil #libreria para el manejo de memoria
 import winapps #libreria para manejo de aplicaciones de windows
 from subprocess import Popen #libreria para ejecutar subprocesos de windows
 # Importar las librerias del Sistema Operativo
-from os import remove
-from os import path
+from os import remove # libreria que permite borrar un archivo del sistema
+from os import path # libreria que permite obtener la ruta de un archivo del sistema
+from io import open # libreria para manejo de archivos de entrada y salida estandar
 
-from io import open #libreria para manejo de archivos
-
-#abrir el archivo con una variable global
+# Abrir el archivo con una variable global
 archivo = open("info_pc.txt","w")
 # abre el archivo con el nombre que se le indica en elk primer parametro en caso
 # de que no exista entonces lo crea y en el segundo
 # parametro se le indica como se quiere abrir el archivo a = add w = write, r = read
 
-
-#Función para obtener el nombre de la maquina
+# Función para obtener el nombre de la maquina
 def nombrePC():
     nombre_PC = socket.gethostname()
     archivo.write("Nombre de la PC: " + nombre_PC)
 
-#Funcion para obtener las IP
+# Funcion para obtener las IP
 def IPpriv():
     nombre_PC = socket.gethostname()
     IPpriv = socket.gethostbyname(nombre_PC)
@@ -34,16 +32,14 @@ def IPpub():
     ip_externa = urllib.request.urlopen('https://ident.me').read().decode('utf8')
     archivo.write("IP publica: " + ip_externa)
 
-
-
-#funcion  que devuelve nformacion del sistema
+# Función  que devuelve nformacion del sistema
 def sist():
     arqui_sist=platform.architecture()
     archivo.write("Arquitectura y SO: " + str(arqui_sist))
     vers = platform.release()
     archivo.write("\nVersion: " + vers)
 
-#Funcion que devuelve informacion sobre el hardware
+# Funcion que devuelve informacion sobre el hardware
 def Cores():
     tipo_mauina=platform.machine()
     archivo.write("Tipo de maquina: " + tipo_mauina)
@@ -53,7 +49,7 @@ def Cores():
     cores_totales = psutil.cpu_count(logical=True)
     archivo.write("\n" + "cores fisicos: " + str(cores_fisicos) + "\n" + "cores totales: " + str(cores_totales))
 
-#funcion de convfersion de unidades de almacenamiento
+# Funcion de convfersion de unidades de almacenamiento
 """
     Reescala los bytes al formato adecuado
         1253656 => '1.20MB'
@@ -66,15 +62,25 @@ def get_size(bytes, sufijo="B"):
             return f"{bytes:.2f}{unidad}{sufijo}" #retorna la unidad de medida final redondeada a 2 decimales con su correspondiente abreviatura
         bytes /= factor_conversion
 
+"""
+Consultar mejora, en esta parte se puede retornar un mensaje de "estado crítico en caso de que el porcentaje de 
+memoria ram ocupado sea mayor o igual a 90%
+"""
+
 def memoriaRAM():
     ram = psutil.virtual_memory()
     archivo.write("\nMemoria RAM  total: " + get_size(ram.total))
     archivo.write("\nMemoria RAM usada: " + get_size(ram.used))
     archivo.write("\nMemoria RAM disponible: " + get_size(ram.available))
+    # print(f"Percentage: {swap.percent}%")
+    archivo.write("\nPorcentage de memoria ram usado: " + str(ram.percent) + "%")
 
+# Funcion que devuelve el espacio en disco disponible
 
-#funcion que devuelve el espacio en disco disponible
-
+"""
+Consultar mejora, en esta parte se puede retornar un mensaje de "estado crítico en caso de que el porcentaje de 
+memoria ocupado sea mayor o igual a 90%
+"""
 def espacioEnDisco():
     partitions = psutil.disk_partitions()
     for partition in partitions:
@@ -87,38 +93,18 @@ def espacioEnDisco():
             continue
         archivo.write("Espacio total en disco: " + get_size(partition_usage.total))
         archivo.write("\nEspacio usado en disco: " + get_size(partition_usage.used))
-        archivo.write("\nEspacio libre en disco: " + get_size(partition_usage.free) + "\n")
+        archivo.write("\nEspacio libre en disco: " + get_size(partition_usage.free))
+        # print(f"  Percentage: {partition_usage.percent}%")
+        archivo.write("\nProcentage de espacio utilizado: " + str(partition_usage.percent) + "%\n")
+        
         archivo.write("-" * 50 + "\n")
 
-#funcion que ejecuta al bat para obtener la id y guardarla en un txt
+# Funcion que ejecuta al bat para obtener la id y guardarla en un txt
 def get_id():
     p = Popen("get_id_any.bat")
     stdout, stderr = p.communicate()
 
-# #funcion que concatena los txt generando un tercer archivo final y eliminando los anteriores
-# def concatenar():
-#     filenames = ['info_pc.txt', 'Any_id.txt']  
-#     with open('info_final_pc.txt', 'w') as outfile:
-      
-#     # iterar sobre la lista
-#         for names in filenames:
-    
-#             # abrir cada archivo en modo lectura
-#             with open(names) as infile:
-    
-#                 # leer los datos del archivo_1 y el archivo_2
-                
-#                 outfile.write(infile.read())
-    
-#             # agregar '\n' para guardar los datos del archivo_2
-#             outfile.write("\n")
-
-#             if path.exists('info_pc.txt') and path.exists('Any_id.txt'):
-#                 archivo.close()
-#                 remove('info_pc.txt')
-#                 remove('Any_id.txt')
-
-
+# Función que devuelve una lista y filtra para verificar que el any_desk esté instalado
 def any_instalado():
     # obtiene una lista con cada aplicacion instalada en windows
     for item in winapps.list_installed():
@@ -131,8 +117,44 @@ def any_instalado():
             archivo.write("AnyDesk NO instalado")
 
 
+# Funcion que  recorre la lista de programas instalados e imprime en pantalla 
 
-#Funcion que une a todas las anteriores y cierra el archivo
+"""
+Consultar si a esta funcion se le puede hacer una mejora: por ejemplo tener una lista 
+(o 2 listas, una de 64 y otra de 32 bits) predefinida como constante 
+donde se compare con la lista generada por winnapps para saber si tiene programas de mas o le faltan algunos.
+
+* Retrono de la funcion en cada uno de los posibles casos
+
+- En caso de que tenga programas de más: devolver la lista con los nombres de tales programas y fecha de instalación
+  con  un mensaje que indique que deben ser desinstalados o consultar a sistemas para mantenerlos instalados 
+
+- En caso de le falte programas: devolver una lista con los nombres de los programas faltanttes e indicar un mensaje 
+  que indique priorizar la instalación de los mismos
+
+- En caso de tener los programas justos y necesarios se debe retornal la lista con sus nombres e indicar que todo está
+  en orden
+"""
+
+def mostrar_programas():
+    
+    # Creacion de un archivo de texto para almacenar todos los programas instalados
+    archivo_programas = open("programas_instalados.txt","w")
+    
+    # Grabar en el archivo un título indicando el nombre de la PC
+    archivo_programas.write("\n" + "=" * 40 + "Programas instalados en " + socket.gethostname() + "=" * 40 + "\n")
+    # loop que recorre la lista de programas instalados 
+    for item in winapps.list_installed():
+        # Grabacion en el achivo de texto de los programas instalados
+
+        if item.install_date == None:
+            archivo_programas.write(item.name + " - Fecha de instalacion: de Fabrica o instalado por sistemas" + "\n")
+        else:
+            archivo_programas.write(item.name + " - Fecha de instalacion: " + str(item.install_date) + "\n")
+    # Cierre del archivo con los programas instalados
+    archivo_programas.close()
+
+# Funcion que une a todas las anteriores y cierra el archivo
 def EjecutarTodo():
     archivo.write("="*40 + "Nombre PC" + "="*40 + "\n")
     nombrePC()
@@ -153,19 +175,25 @@ def EjecutarTodo():
     any_instalado()
     archivo.close() #CERRAR ARCHIVO SIEMPRE AL FINAL XD
 
+    mostrar_programas()
+
 EjecutarTodo()
 
-#Concatenar los 2 archivos en uno solo
+# Concatenar los 2 archivos en uno solo
 filenames = ['info_pc.txt', 'Any_id.txt']
 with open('especificaciones.txt', 'w') as outfile:
     for fname in filenames:
         with open(fname) as infile:
             outfile.write(infile.read())
 
-#eliminar los 2 archivos restantes
+# Eliminar los 2 archivos restantes
 if path.exists('info_pc.txt') and path.exists('Any_id.txt'):
     remove('info_pc.txt')
     remove('Any_id.txt') 
 
+# SCRIPT DE RELEVAMIENTO LISTO
 
-#SCRIPT DE RELEVAMIENTO LISTO
+""" 
+generar en la base de datos una tabla con los programas que se necesita para cada sector
+y asi poder compararla con la lista generada por el script 
+"""
