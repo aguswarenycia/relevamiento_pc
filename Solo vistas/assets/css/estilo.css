@@ -273,6 +273,29 @@ div.content {
 
 /*Para el navbar sin boostrap*/
 
+/*Para el login*/
+.flexbox-container-login {
+	display: -ms-flex;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.flexbox-container-login > div {
+	width: 50%;
+	padding: 10px;
+  height: 100%;
+  /*background: transparent;*/
+  padding-top: 200px;
+  
+}
+
+.flexbox-container-login > div:first-child {
+	margin-right: 10px;
+}
+
+.imagen-login{
+  background: white;
+}
 
 
 
