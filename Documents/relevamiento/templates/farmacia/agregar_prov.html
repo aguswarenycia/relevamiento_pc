@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    agregar prov
+{% endblock title %}
+
+{% block body %}
+<div class = "formu">
+<form method="POST">
+  <div class="form-group">
+  {% csrf_token %}
+  {% if error %}
+      <h2>{{ error }}</h2>
+  {% else %} 
+      {{form.as_p}}
+      <button type="submit" class="btn btn-success">Crear</button>
+  {% endif %} 
+  </div> <!-- Pintar html en sintaxis de Django-->
+  </form>
+  </div>     
+{% endblock body %}
+    

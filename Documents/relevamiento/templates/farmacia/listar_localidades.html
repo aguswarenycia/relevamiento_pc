@@ -1,0 +1,57 @@
+{% extends 'index.html' %}
+
+
+{% block titulo %}
+    lista-ciudades
+{% endblock titulo %}
+
+
+{% block body %}
+
+  
+<h2 style="text-align: center;">Lista de Ciudades</h2>
+
+    {% if localidad %}
+    <div style="margin: 50px;" class="table-responsive-sm">
+        <button class="btn btn-dark">Activar Ciudades</button>
+        <button type="submit" class="btn btn-success">Agregar nueva Ciudad</button> 
+
+
+        <br>
+        <br>
+        <table class="table table-light table-hover">
+          <thead>
+                                  
+              <tr style="text-align: center;">
+
+                <th>ID de la Ciudad</th>
+                <th>Nombre de la Ciudad</th>
+                <th>Opciones</th>
+              
+              </tr>
+        
+        {% for loc in localidad %}
+                    
+            <tr style="text-align: center;">
+                <td>{{loc.id_localidad}}</td>
+                <td>{{loc.descripcion}}</td>
+                <td>
+                    <a href="{% url 'farmacia:lista_farmacias' %}?lang={{loc.id_localidad}}">Farmacias</a> 
+                </td>
+                
+            </tr>
+    
+        {% endfor %}
+        
+    {% else %}
+            <h2>No hay Ciudades para mostrar</h2>
+    {% endif %}
+    </div>
+
+
+    {% endblock body %}
+
+</main>
+
+</body>
+</html>

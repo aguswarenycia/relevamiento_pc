@@ -1,0 +1,62 @@
+{% extends 'index.html' %}
+
+
+{% block titulo %}
+    lista-farmacias
+{% endblock titulo %}
+
+
+{% block body %}
+
+  
+<h2 style="text-align: center;">Lista de Farmacias</h2>
+
+    {% if fcias %}
+    <div style="margin: 50px;" class="table-responsive-sm">
+        {% comment %} <button class="btn btn-dark">Activar Ciudades</button>
+        <button type="submit" class="btn btn-success">Agregar nueva Ciudad</button>  {% endcomment %}
+
+
+        <br>
+        <br>
+        <table class="table table-light table-hover">
+          <thead>
+                                  
+              <tr style="text-align: center;">
+
+                <th>ID Farmacia</th>
+                <th>Nombre de la Fcia</th>
+                <th>Dirección</th>
+                <th>IP</th>
+              </tr>
+
+        {% for far in fcias %}  
+        
+         <tr style="text-align: center;">
+                <th>{{far.id_farmacia}}</th>
+                <th>{{far.nombre_facia}}</th>
+                <th>{{far.direccion}}</th>
+                <th>{{far.ip_id}}</th>
+              </tr>
+<!--                 <a href="{% url 'farmacia:lista_localidades' %}?lang={{prov.id_provincia}}" >Ciudades</a>
+-->
+
+                    {% comment %} <a href="#" > Ejecutar script</a>  {% endcomment %}
+                </td>
+                
+            </tr>
+    
+        {% endfor %}
+        
+    {% else %}
+            <h2>No hay Farmacias para mostrar</h2>
+    {% endif %}
+    </div>
+
+
+    {% endblock body %}
+
+</main>
+
+</body>
+</html>
