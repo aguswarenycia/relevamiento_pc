@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    Lista de Farmacias
+{% endblock title %}
+
+
+{% block body %}
+    
+    {% if farmacias%}
+        <table>
+            <thead>
+
+                <tr>
+                    <td>id</td>
+                    <td>nombre</td>
+                    <td>direccion</td>
+                    <td>opciones</td>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for farmacia in farmacias %}
+                <tr>
+                    <td>{{farmacia.fica_id}}</td>
+                    <td>{{farmacia.nombre}}</td>
+                    <td>{{farmacia.direccion}}</td>
+                    <td>
+                        <a href="{% url 'farmacia:editar_farmacia' farmacia.fica_id %}">Editar</a>
+                        <a href="{% url 'farmacia:eliminar_farmacia' farmacia.fica_id %}">Eliminar</a>
+                    </td>
+                </tr> 
+                {% endfor %}
+            </tbody>
+
+        </table>
+    {% else %}
+        <h1> no hay farmacias</h1> 
+    {% endif %}
+{% endblock body %}
+    
