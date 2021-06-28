@@ -104,6 +104,22 @@
                     </li>
 
                 </ul>
+
+                <form class="form-inline my-2 my-lg-0">
+
+                    <a class="nav-link" href="{% url 'logout' %}"><button class="btn btn-dark">Salir</button></a>
+
+                    {% else %}
+
+                    <a class="nav-link" href="{% url 'login' %}"><button class="btn btn-success">Entrar</button></a>
+                    {% endif %}
+                </form>
+
+
+
+
+
+
             </div>
         </nav>
         {% endblock nav %}
