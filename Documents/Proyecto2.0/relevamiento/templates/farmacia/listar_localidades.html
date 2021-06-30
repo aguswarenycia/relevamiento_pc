@@ -52,8 +52,10 @@
                             <td>{{loc.id_localidad}}</td>
                             <td>{{loc.descripcion}}</td>
                             <td>
-                                <a class="btn btn-dark" href="{% url 'farmacia:lista_farmacias' %}?lang={{loc.id_localidad}}">Farmacias</a>
-                                <a class="btn btn-danger" href="{% url 'farmacia:agregar_localidad' %}"> Desactivar</a>
+                                <a class="btn btn-dark"
+                                    href="{% url 'farmacia:lista_farmacias' %}?lang={{loc.id_localidad}}">Farmacias</a>
+                                <a class="btn btn-danger" href="{% url 'farmacia:activar_localidad' loc.id_localidad %}"> Desactivar</a>
+
                             </td>
 
                         </tr>

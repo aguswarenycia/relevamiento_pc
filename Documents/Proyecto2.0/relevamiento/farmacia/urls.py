@@ -5,6 +5,7 @@ from django.urls import path
 from django.contrib.auth.decorators import login_required
 # from django.urls import reverse_lazy
 from .views import (
+    ActivarLocalidad,
     ProbandoLista,
     AgregarLoc,
     ListarLocDes,
@@ -26,6 +27,8 @@ from .views import (
 )
 
 urlpatterns = [
+    path('activar_localidad/<int:pk>', login_required(ActivarLocalidad.as_view()), name ="activar_localidad"),
+
     #-------------------------------- LOGIN --------------------------------
     path('lista_localidades/', login_required(ListarLoc.as_view()), name ="lista_localidades"),
     path('agregar_localidad/',login_required(AgregarLoc.as_view()),name = "agregar_localidad"),

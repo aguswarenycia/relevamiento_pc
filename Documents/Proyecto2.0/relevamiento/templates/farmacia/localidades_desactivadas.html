@@ -13,13 +13,12 @@
 
     {% if localidad %}
     <div style="margin: 50px;" class="table-responsive-sm">
-        <button class="btn btn-success">Activar Ciudades</button>
-        <a href="{% url 'farmacia:listar_provincias' %}"><button type="submit" class="btn btn-primary">atrás</button></a> 
+        <a href="{% url 'farmacia:lista_localidades' %}"><button type="submit" class="btn btn-primary">Volver</button></a>
 
 
         <br>
         <br>
-        <table class="table table-light table-hover">
+        <table class="table table-light table-striped table-hover">
           <thead>
                                   
               <tr style="text-align: center;">
@@ -29,19 +28,22 @@
                 <th>Opciones</th>
               
               </tr>
-        
+              </thead>
+        <tbody>
         {% for loc in localidad %}
         {% if loc.estado == 0 %}
             <tr style="text-align: center;">
                 <td>{{loc.id_localidad}}</td>
                 <td>{{loc.descripcion}}</td>
                 <td>
-                    <a href="{% url 'farmacia:lista_farmacias' %}?lang={{loc.id_localidad}}">Farmacias</a> 
+                    <a class="btn btn-success" href="{% url 'farmacia:activar_localidad' loc.id_localidad %}"> Activar</a>
                 </td>
                 
             </tr>
         {% endif %}
         {% endfor %}
+    </tbody>
+        </table>
         
     {% else %}
             <h2>No hay Ciudades para mostrar</h2>

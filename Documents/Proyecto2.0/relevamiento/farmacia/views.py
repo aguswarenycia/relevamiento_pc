@@ -1,6 +1,7 @@
 #from relevamiento.farmacia.models import Farmacia
 from django.views.generic.edit import CreateView
-from .forms import LocalidadForm, ProgramaForm, ProvinciaForm, ProgramaActForm, ProvinciaActForm
+from .forms import LocalidadForm, ProgramaForm, ProvinciaForm, ProgramaActForm, ProvinciaActForm,  LocalidadActForm
+
 from .models import Farmacia, Fcia, Programa, Provincia, Localidad
  #import de las vistas basadas en clases
 from django.views.generic import ( 
@@ -181,3 +182,9 @@ class ProbandoLista(ListView):
         localidades = Localidad.objects.all()
         farmacias = Fcia.objects.all()
         return {'provincias': provincias, 'localidades': localidades, 'farmacias':farmacias}
+
+class ActivarLocalidad(UpdateView):
+    model = Localidad
+    template_name = 'farmacia/agregar_localidad.html'
+    form_class = LocalidadActForm
+    success_url = reverse_lazy('farmacia:lista_localidades')

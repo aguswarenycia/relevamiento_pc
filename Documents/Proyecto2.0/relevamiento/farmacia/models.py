@@ -87,7 +87,7 @@ class Provincia(models.Model):
 
 # Tabla localidad 
 
-localidad_status=[(0,"Activar"),(1,"Desactivar")]
+localidad_status=[(1,"Activar"),(0,"Desactivar")]
 
 class Localidad(models.Model):
 
