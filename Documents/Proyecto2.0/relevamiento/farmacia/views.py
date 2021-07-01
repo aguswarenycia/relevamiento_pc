@@ -188,3 +188,8 @@ class ActivarLocalidad(UpdateView):
     template_name = 'farmacia/agregar_localidad.html'
     form_class = LocalidadActForm
     success_url = reverse_lazy('farmacia:lista_localidades')
+
+
+    
+class vista_PC(TemplateView):
+    template_name = 'farmacia/especificacion_pc.html'

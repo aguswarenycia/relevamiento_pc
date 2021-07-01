@@ -21,7 +21,7 @@ class LocalidadActForm(forms.ModelForm):
             })
 
         labels = {
-            'estado' : 'estado de la localidad (Activar/Desactivar)'
+            'estado' : 'Estado de la localidad (Activar/Desactivar)'
         }
 
 class LocalidadForm(forms.ModelForm):
@@ -156,7 +156,7 @@ class ProvinciaActForm(forms.ModelForm):
             })
 
         labels = {
-            'estado' : 'estado de la provincia (Activar/Desactivar)'
+            'estado' : 'Estado de la provincia (Activar/Desactivar)'
         }
 
 class LocalidadActForm(forms.ModelForm):
@@ -174,6 +174,6 @@ class LocalidadActForm(forms.ModelForm):
             })
 
         labels = {
-            'estado' : 'estado de la localidad (Activar/Desactivar)'
+            'estado' : 'Estado de la localidad (Activar/Desactivar)'
         }
 

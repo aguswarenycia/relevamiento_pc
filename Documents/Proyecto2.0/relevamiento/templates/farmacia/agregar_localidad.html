@@ -27,7 +27,7 @@
                     <h1>Agregar Localidad</h1>
                 </div>
                 
-              <a type="button" class="btn btn-primary" href="{% url 'farmacia:lista_localidades' %}">Cancelar</a>
+              
                 <br>
 
                 <div class="container-form">
@@ -43,6 +43,7 @@
                                     {{form.as_p}}
 
                                     <button type="submit" class="btn btn-success btn-lg">Crear</button>
+                                    <a type="button" class="btn btn-primary btn-lg" href="{% url 'farmacia:lista_localidades' %}">Cancelar</a>
                                 {% endif %}
                                 </div>
                             </div>

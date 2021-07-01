@@ -1,0 +1,192 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>
+        {% block titulo %}
+        agregar-localidad
+        {% endblock titulo %}
+
+    </title>
+</head>
+
+<body>
+    <main>
+        {% block body %}
+        <div class="container">
+            <h1 style="text-align:center;">PCs de la Farmacia "nombre de la farmacia"</h1>
+            <div class="table-responsive-sm"></div>
+            <table class="table table-light  table-hover table-bordered border-dark">
+                <thead>
+                    <tr class="table-success">
+                        <th></th>
+                        
+                        <th style="text-align:left;">Relevamiento - Fecha: </th>
+                        <th>2021-06-23</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+
+
+                </thead>
+                <tbody>
+                    <tr style="font-weight: 700;">
+                        <td></td>
+                        
+                        <td >Nombre PC: </td>
+                        <td>DESKTOP-A920KM3</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+          
+                    <tr class="table-info">
+                        
+                        <th></th>
+                        <th>INFORMACION IP</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th>IP privada:</th>
+
+                        <td>192.168.0.148</td>
+                        <th>IP publica:</th>
+                        <td>181.15.193.66</td>
+                        <td></td>
+                    </tr>
+                   
+                    <tr class="table-info">
+                        <th></th>
+                        <th>SISTEMA</th>
+                       
+                        <TH></TH>
+                        <TH></TH>
+                        <th></th>
+                    </tr>
+
+                    <tr>
+                        <th>Arquitectura: </th>
+                        <td>'64bit', 'WindowsPE'</td>
+                        <th>Version:</th>
+                        <td>10</td>
+                        <td></td>
+
+                    </tr>
+                    <tr class="table-info">
+                       
+                        <th></th>
+                        <th>HARDWARE</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr class="table-secondary">
+                        <th>Tipo de maquina:</th>
+                        <th>Procesador:</th>
+                        <th>Cores fisicos:</th>
+                        <th>Cores totales:</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td> AMD64</td>
+                        <td> Intel Family 6 Model 158 Stepping 10, GenuineIntel</td>
+                        <td> 2</td>
+                        <td> 4</td>
+                        <td></td>
+                    </tr>
+                 
+                    <tr class="table-info">
+                        
+                        <th></th>
+                        <th>MEMORIA RAM</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr class="table-secondary">
+                        <th>Memoria RAM total:</th>
+                        <th>Memoria RAM usada: </th>
+                        <th>Memoria RAM disponible:</th>
+                        <th>Porsentaje de memoria RAM usado:</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td> 3.88GB</td>
+                        <td>3.08GB</td>
+                        <td> 813.90MB</td>
+                        <td> 79.5%</td>
+                        <td></td>
+                    </tr>
+                   
+                    <tr class="table-info">
+                        
+                        <th></th>
+                        <th>MEMORIA EN DISCO</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr class="table-secondary">
+                        <th></th>
+                        <th>Disco:  C</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr class="table-secondary">
+                        <th>File system type:</th>
+                        <th>Espacio total en disco:</th>
+                        <th>Espacio usado en disco:</th>
+                        <th>Espacio libre en disco: </th>
+                        <th>Procentage utilizado:</th>
+                    </tr>
+                    <tr>
+                        <td>NTFS</td>
+                        <td>292.35GB</td>
+                        <td>93.78GB</td>
+                        <td>198.57GB</td>
+                        <td>32.1%</td>
+                    </tr>
+                    <tr class="table-secondary">
+                       
+                        <th></th>
+                        <th>Disco:  D</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr class="table-secondary">
+                        <th>File system type:</th>
+                        <th>Espacio total en disco:</th>
+                        <th>Espacio usado en disco:</th>
+                        <th>Espacio libre en disco: </th>
+                        <th>Procentage utilizado:</th>
+                    </tr>
+                    <tr>
+                        <td>NTFS</td>
+                        <td>638.54GB</td>
+                        <td>1.25GB</td>
+                        <td>637.29GB</td>
+                        <td>0.2%</td>
+                    </tr>
+
+
+                </tbody>
+
+
+            </table>
+        </div>
+        </div>
+
+        {% endblock body %}
+    </main>
+</body>
+
+</html>

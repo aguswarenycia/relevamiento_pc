@@ -1,22 +1,38 @@
 {% extends 'index.html' %}
 
 {% block title %}
-    agregar prov
+Agregar provincia
 {% endblock title %}
 
 {% block body %}
-<div class = "formu">
-<form method="POST">
-  <div class="form-group">
-  {% csrf_token %}
-  {% if error %}
-      <h2>{{ error }}</h2>
-  {% else %} 
-      {{form.as_p}}
-      <button type="submit" class="btn btn-success">Crear</button>
-  {% endif %} 
-  </div> <!-- Pintar html en sintaxis de Django-->
-  </form>
-  </div>     
-{% endblock body %}
-    
+<div class="content">
+    <div class="container">
+        <div class="well">
+            <h1>Activar Provincia</h1>
+        </div>
+        
+                <br>
+
+        <div class="formu">
+            <form method="POST">
+                
+                <br>
+                <div class="form-group">
+                    {% csrf_token %}
+                    {% if error %}
+                    <h2>{{ error }}</h2>
+                    {% else %}
+                    {{form.as_p}}
+
+                    <button type="submit" class="btn btn-success btn-lg">Crear</button>
+                    <a type="button" class="btn btn-primary btn-lg" href="{% url 'farmacia:lista_prov_desactivadas' %}">Cancelar</a>
+                    {% endif %}
+                </div> <!-- Pintar html en sintaxis de Django-->
+            
+            
+              </div>
+        </div>
+    {% endblock body %}
+    </main>
+</body>
+</html>
