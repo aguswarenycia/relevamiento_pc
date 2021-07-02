@@ -2,7 +2,7 @@
 from django.views.generic.edit import CreateView
 from .forms import LocalidadForm, ProgramaForm, ProvinciaForm, ProgramaActForm, ProvinciaActForm,  LocalidadActForm
 
-from .models import Farmacia, Fcia, Programa, Provincia, Localidad
+from .models import Farmacia, Fcia, Programa, Provincia, Localidad, Pc_Farmacia
  #import de las vistas basadas en clases
 from django.views.generic import ( 
                                 TemplateView, #Vista basada en clase para renderizar una página estática simple 
@@ -191,8 +191,18 @@ class ActivarLocalidad(UpdateView):
 
 
     
-class vista_PC(TemplateView):
-    template_name = 'farmacia/especificacion_pc.html'
 
 class vista_programas(TemplateView):
     template_name = 'farmacia/programas_pc.html'
+
+class vista_PC(ListView):
+    model = Pc_Farmacia
+    template_name = 'farmacia/especificacion_pc.html'
+    context_object_name = 'computadoras'
+    queryset = Pc_Farmacia.objects.all()
+
+class vista_programas(ListView):
+    model = Programa
+    template_name = 'farmacia/programas_pc.html'
+    context_object_name = 'programas'
+    queryset = Programa.objects.all()

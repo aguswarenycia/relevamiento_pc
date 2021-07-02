@@ -44,6 +44,7 @@ INSTALLED_APPS = [ #aplicaciones instaladas del proyecto si se crea una nueva ap
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'farmacia',
+    'mathfilters',
 ]
 
 MIDDLEWARE = [

@@ -10,7 +10,7 @@
 
     <title>
         {% block titulo %}
-        Especificacion PC
+            Especificacion PC
         {% endblock titulo %}
 
     </title>
@@ -20,17 +20,28 @@
     <main>
         {% block body %}
         <div class="container">
+            
+            
             <h1 style="text-align:center;">PCs de la Farmacia "nombre de la farmacia"</h1>
             <div class="table-responsive-sm"></div>
+            
+            <a href="#"><button type="submit"
+                class="btn btn-primary">Volver</button></a>
+
+                <br>
+                <br>
+
             <table class="table table-light  table-hover table-bordered border-dark">
                 <thead>
+                {% for pc in computadoras %}
+                
                     <tr class="table-success">
                         <th></th>
-                        
+                
                         <th style="text-align:left;">Relevamiento - Fecha: </th>
-                        <th>2021-06-23</th>
+                        <th>{{ pc.fehca_relevamiento }}</th>
                         <th></th>
-                        <th></th>
+                        
                     </tr>
 
 
@@ -40,9 +51,9 @@
                         <td></td>
                         
                         <td >Nombre PC: </td>
-                        <td>DESKTOP-A920KM3</td>
+                        <td>{{pc.nombre_pc}}</td>
                         <td></td>
-                        <td></td>
+                        
                     </tr>
                     <tr class="table-info">
                         
@@ -50,14 +61,14 @@
                         <th>ANYDESK</th>
                         <th></th>
                         <th></th>
-                        <th></th>
+                        
                     </tr>
                     <tr>
                         <th>ID AnyDesk:</th>
-                        <td>771757238</td>
+                        <td>{{pc.id_AnyDesk}}</td>
                         <td></td>
                         <td></td>
-                        <td></td>
+                        
                     </tr>
           
                     <tr class="table-info">
@@ -66,15 +77,14 @@
                         <th>INFORMACION IP</th>
                         <th></th>
                         <th></th>
-                        <th></th>
                     </tr>
                     <tr>
                         <th>IP privada:</th>
 
-                        <td>192.168.0.148</td>
+                        <td>{{pc.ip}}</td>
                         <th>IP publica:</th>
-                        <td>181.15.193.66</td>
-                        <td></td>
+                        <td>{{pc.ip_publica}}</td>
+                        
                     </tr>
                    
                     <tr class="table-info">
@@ -83,15 +93,15 @@
                        
                         <TH></TH>
                         <TH></TH>
-                        <th></th>
+                        
                     </tr>
 
                     <tr>
                         <th>Arquitectura: </th>
-                        <td>'64bit', 'WindowsPE'</td>
+                        <td>{{pc.arquitectura_so}}</td>
                         <th>Version:</th>
-                        <td>10</td>
-                        <td></td>
+                        <td>{{pc.version_so}}</td>
+                        
 
                     </tr>
                     <tr class="table-info">
@@ -100,21 +110,21 @@
                         <th>HARDWARE</th>
                         <th></th>
                         <th></th>
-                        <th></th>
+                        
                     </tr>
                     <tr class="table-secondary">
                         <th>Tipo de maquina:</th>
                         <th>Procesador:</th>
                         <th>Cores fisicos:</th>
                         <th>Cores totales:</th>
-                        <th></th>
+                        
                     </tr>
                     <tr>
-                        <td> AMD64</td>
-                        <td> Intel Family 6 Model 158 Stepping 10, GenuineIntel</td>
-                        <td> 2</td>
-                        <td> 4</td>
-                        <td></td>
+                        <td> {{pc.tipo_maquina}}</td>
+                        <td> {{pc.procesador}}</td>
+                        <td> {{pc.cores_fisicos}}</td>
+                        <td> {{pc.cores_totales}}</td>
+                        
                     </tr>
                  
                     <tr class="table-info">
@@ -123,21 +133,21 @@
                         <th>MEMORIA RAM</th>
                         <th></th>
                         <th></th>
-                        <th></th>
+                        
                     </tr>
                     <tr class="table-secondary">
                         <th>Memoria RAM total:</th>
                         <th>Memoria RAM usada: </th>
                         <th>Memoria RAM disponible:</th>
                         <th>Porsentaje de memoria RAM usado:</th>
-                        <th></th>
+                        
                     </tr>
                     <tr>
-                        <td> 3.88GB</td>
-                        <td>3.08GB</td>
-                        <td> 813.90MB</td>
-                        <td> 79.5%</td>
-                        <td></td>
+                        <td> {{pc.RAM_tot}}</td>
+                        <td>{{pc.RAM_usada}}</td>
+                        <td> {{pc.RAM_disponible}}</td>
+                        <td> {{pc.RAM_procentaje_disponible}}</td>
+                        
                     </tr>
                    
                     <tr class="table-info">
@@ -146,28 +156,28 @@
                         <th>MEMORIA EN DISCO</th>
                         <th></th>
                         <th></th>
-                        <th></th>
+                        
                     </tr>
                     <tr class="table-secondary">
                         <th></th>
                         <th>Disco:  C</th>
                         <th></th>
                         <th></th>
-                        <th></th>
+                        
                     </tr>
                     <tr class="table-secondary">
-                        <th>File system type:</th>
+                        
                         <th>Espacio total en disco:</th>
                         <th>Espacio usado en disco:</th>
                         <th>Espacio libre en disco: </th>
                         <th>Procentage utilizado:</th>
                     </tr>
                     <tr>
-                        <td>NTFS</td>
-                        <td>292.35GB</td>
-                        <td>93.78GB</td>
-                        <td>198.57GB</td>
-                        <td>32.1%</td>
+                        
+                        <td>{{pc.espacio_tot_C}}</td>
+                        <td>{{pc.espacio_usado_C}}</td>
+                        <td>{{pc.espacio_disponible_C}}</td>
+                        <td>{{pc.procentaje_disponible_C}}</td>
                     </tr>
                     <tr class="table-secondary">
                        
@@ -175,31 +185,38 @@
                         <th>Disco:  D</th>
                         <th></th>
                         <th></th>
-                        <th></th>
+                        
                     </tr>
                     <tr class="table-secondary">
-                        <th>File system type:</th>
                         <th>Espacio total en disco:</th>
                         <th>Espacio usado en disco:</th>
                         <th>Espacio libre en disco: </th>
                         <th>Procentage utilizado:</th>
                     </tr>
                     <tr>
-                        <td>NTFS</td>
-                        <td>638.54GB</td>
-                        <td>1.25GB</td>
-                        <td>637.29GB</td>
-                        <td>0.2%</td>
+                        <td>{{pc.espacio_tot_C}}</td>
+                        <td>{{pc.espacio_usado_C}}</td>
+                        <td>{{pc.espacio_disponible_C}}</td>
+                        <td>{{pc.procentaje_disponible_C}}</td>
                     </tr>
-
-
+                    <tr class="table-danger">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        
+                    </tr>
                 </tbody>
-
-
+               
+                
+            
+            {% endfor %}
             </table>
+       
         </div>
+        
         </div>
-
+         
         {% endblock body %}
     </main>
 </body>
