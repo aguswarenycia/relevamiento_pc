@@ -1,0 +1,101 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>
+        {% block titulo %}
+        Programas
+        {% endblock titulo %}
+
+    </title>
+</head>
+
+<body>
+    <main>
+        {% block body %}
+        <div class="container">
+            <h1 style="text-align:center;">Programas de la PC "Nombre de la PC"</h1>
+            <div class="table-responsive-sm"></div>
+            <table class="table table-light   table-bordered border-dark">
+                <thead>
+                    <tr class="table-success">
+
+
+                        <th style="text-align:left;">Programas Instalados - Fecha: 2021-06-23 </th>
+                        <th></th>
+                        <th></th>
+                        
+                    </tr>
+                </thead>
+
+                <tr class="table-info">
+                    <th>NOMBRE DE LA PC:</th>
+                    <th>DESKTOP-A920KM3</th>
+                    <td></td>
+                    
+                </tr>
+                <tr class="table-secondary">
+                    <th>Programa</th>
+                    <th>Version</th>
+                    <th>Fecha de instalacion</th>
+                    
+                </tr>
+                <tr>
+                    <td>Git version 2.31.1</td>
+                    <td>2.31.1</td>
+                    <td>2021-05-05</td>
+                   
+                </tr>
+
+<!-- ---------------------------Estas filas y columnas son para ejemplos--------------------------------- -->
+                <tr class="table-secondary">
+                    <th>Programa</th>
+                    <th>Version</th>
+                    <th>Fecha de instalacion</th>
+                    
+                </tr>
+                <tr>
+                    <td>Microsoft SQL Server 2019 (64-bit)</td>
+                    <td>2.31.1</td>
+                    <td>2021-05-05</td>
+                   
+                </tr>
+                <tr class="table-secondary">
+                    <th>Programa</th>
+                    <th>Version</th>
+                    <th>Fecha de instalacion</th>
+                    
+                </tr>
+                <tr>
+                    <td>Mozilla Thunderbird 78.10.2 (x64 es-ES)</td>
+                    <td>2.31.1</td>
+                    <td>2021-05-05</td>
+                   
+                </tr>
+                <tr class="table-secondary">
+                    <th>Programa</th>
+                    <th>Version</th>
+                    <th>Fecha de instalacion</th>
+                    
+                </tr>
+                <tr>
+                    <td>Mozilla Maintenance Service</td>
+                    <td>2.31.1</td>
+                    <td>2021-05-05</td>
+                   
+                </tr>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        {% endblock body %}
+    </main>
+</body>
+
+</html>

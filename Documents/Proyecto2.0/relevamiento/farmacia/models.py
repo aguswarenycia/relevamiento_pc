@@ -107,11 +107,12 @@ class Localidad(models.Model):
 # Tabla para las PC
 
 class Pc_Farmacia (models.Model):
-        
+    fehca_relevamiento = models.DateField("Fecha-Relevamiento", null = True, blank = True)
     ip = models.CharField("IP", primary_key=True, max_length = 256, null = False, blank = False)
     nombre_pc = models.CharField("nombre_pc", max_length = 256, blank = True, null = True)
     ip_publica = models.CharField("ip_publica", max_length = 256, blank = True, null = True)
     arquitectura_so = models.CharField("arquitectura_so", max_length = 256, blank = True, null = True)
+    version_so = models.CharField("version",max_length=50,blank=True,null=True)#agregado
     tipo_maquina = models.CharField("tipo_maquina", max_length = 256, blank = True, null = True)
     procesador = models.CharField("procesador", max_length = 256, blank = True, null = True)
     cores_fisicos = models.IntegerField("cores_fisicos", null =True, blank = True)
@@ -119,12 +120,15 @@ class Pc_Farmacia (models.Model):
     RAM_tot = models.CharField("ram_total", max_length = 256, blank = True, null = True)
     RAM_usada = models.CharField("ram_usada", max_length = 256, blank = True, null = True)
     RAM_disponible = models.CharField("ram_disponible", max_length = 256, blank = True, null = True)
+    RAM_procentaje_disponible = models.CharField("RAM_disponible", max_length=256, blank = True, null = True)#agregado
     espacio_tot_C = models.CharField("espacio_total_C", max_length = 256, blank = True, null = True)
     espacio_tot_D = models.CharField("espacio_total_D", max_length = 256, blank = True, null = True)
     espacio_usado_C = models.CharField("espacio_usado_C", max_length = 256, blank = True, null = True)
     espacio_usado_D = models.CharField("espacio_usado_D", max_length = 256, blank = True, null = True)
     espacio_disponible_C = models.CharField("espacio_disponible_C", max_length = 256, blank = True, null = True)
     espacio_disponible_D = models.CharField("espacio_disponible_D", max_length = 256, blank = True, null = True)
+    procentaje_disponible_C = models.CharField("porcentaje_disponible_C", max_length = 256, null = True, blank = True)#agregado
+    procentaje_disponible_D = models.CharField("porcentaje_disponible_D", max_length = 256, null = True, blank = True)#agregado
     AnyDesk_instalado = models.CharField("any_instalado", max_length = 256, blank = True, null = True)
     id_AnyDesk = models.CharField("any_instalado", max_length = 256, blank = True, null = True)
 

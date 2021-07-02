@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   {% block titulo %}
-    lista-programas
+    lista programas
   {% endblock titulo %}
 </title>
 </head>
@@ -26,14 +26,14 @@
 
           <a type="button" class="btn btn-primary" href="{% url 'farmacia:agregar_programas' %}">Agregar nuevo programa</a>
           <!-- editar el boton eliminados para que lleve a una lista con los programas deshabilitados y que le de al usuario la opcion para eliminarlo completamente o habilitarlo de nuevo  -->
-          <a type="button" class="btn btn-dark" href="{% url 'farmacia:lista_programas_desactivados' %}">Desactivados</a>
+          <a type="button" class="btn btn-danger" href="{% url 'farmacia:lista_programas_desactivados' %}">Desactivados</a>
           <br><br>
 
           <div class="table-responsive-sm">
             <table class="table table-light table-striped table-hover">
               
               <thead>
-                <tr>
+                <tr class="table-success">
                   <th>ID</th>
                   <th>Nombre</th>
                   <th>Version</th> 

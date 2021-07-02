@@ -25,7 +25,8 @@ from .views import (
     ListarFcias,   
     ListarLoc,
     ListarProgDesactivados,
-    vista_PC
+    vista_PC,
+    vista_programas
 )
 
 urlpatterns = [
@@ -52,5 +53,6 @@ urlpatterns = [
     path('localidades_desactivadas/',login_required(ListarLocDes.as_view()),name = 'localidades_desactivadas'),
 
     path('listar_farmacias_2/',login_required(ProbandoLista.as_view()), name = 'listar_farmacias_2'),
-path('especificacion_pc/',login_required(vista_PC.as_view()), name = 'especificacion_pc'),
+    path('especificacion_pc/',login_required(vista_PC.as_view()), name = 'especificacion_pc'),
+    path('programas/',login_required(vista_programas.as_view()), name = 'programas'),
 ] 

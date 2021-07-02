@@ -193,3 +193,6 @@ class ActivarLocalidad(UpdateView):
     
 class vista_PC(TemplateView):
     template_name = 'farmacia/especificacion_pc.html'
+
+class vista_programas(TemplateView):
+    template_name = 'farmacia/programas_pc.html'

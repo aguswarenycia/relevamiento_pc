@@ -24,44 +24,43 @@
                 <br>
             </div>
 
-           <div  class="container">
-                <div class="row">
-                    <div class="col-md-12 search">
-                        <form method="GET">
-                            <div id="custom-search">
-                                <div  class="input-group col-md-12">
-                                        <input style="text-align: center; font-weight: bold;"  type="text" class="form-control" placeholder="Buscar" name="buscar">
-                                        <span class="input-gruop-list">    
-                                            <button type="submit" class="btn btn-success"><i class="fas fa-search fa-sm"></i></button>
-                                        </span>
-                                </div>
+           
+
+            <div class="container mt-4">
+                <div class="row d-flex justify-content-center" >
+                    <div class="col-md-9">
+                        
+                            
+                            <div class="d-flex justify-content-center px-5">
+                                <div class="search"> <input type="text" class="search-input" placeholder="Buscar..." name="buscador" > <a href="#" class="search-icon"> <i class="fa fa-search"></i> </a> </div>
                             </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+                       </div></div></div>
+            
 <br>
 
             <div class="table-responsive-sm">
-                <table class="table table-light table-hover border-top-0 border-white border border-2 ">
+                <table class="table table-light  border-top-0 border-white border border-2 ">
                     {% for prov in provincias %}
                         {% if prov.estado == 1 %}
-                    <thead> 
-                        <tr class="table-success">    
-                            <th></th><th></th>
-                                <th style="font-size: 40px;" >Provincia: {{prov.descripcion}}</th>
-                            <th></th><th></th>
+                    <thead class="table-hover "> 
+                        <tr class="bg-info table-info">    
+                            <th></th>
+                            <th></th>
+                            <th style="font-size: 40px;" >Provincia: {{prov.descripcion}}</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="table-hover ">
                             {% for loc in localidades %}
                                 {% if loc.id_provincia_id_id == prov.id_provincia %}
-                                    <tr class="table-secondary"> 
+                                    <tr class="table-secondary table-success"> 
                                     <th></th>
                                     <td style="font-size: 30px; font-weight: bold">{{loc.descripcion}}</td>
                                     <th></th>
                                     <th></th>
                                     <th></th> </tr>
-                                    <tr style="font-weight: 700;" class="table-secondary">
+                                    <tr style="font-weight: 700;" class="table-secondary table-bordered border-dark">
                                         <td>ID</td>
                                         <td>nombre</td>
                                         <td>dirección</td>
@@ -70,7 +69,7 @@
                                     </tr>
                                     {% for fcia in farmacias %}
                                         {% if fcia.id_localidad_id == loc.id_localidad %}
-                                            <tr>
+                                            <tr class="table-bordered">
                                                 <td>{{fcia.id_farmacia}}</td>
                                                 <td>{{fcia.nombre_facia}}</td>
                                                 <td>{{fcia.direccion}}</td>
