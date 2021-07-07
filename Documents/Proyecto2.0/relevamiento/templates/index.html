@@ -67,14 +67,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
 
-          
-<li class="nav-item me-3 me-lg-1 active">
-        <a class="nav-link" href="{% url 'farmacia:listar_farmacias_2' %}">
-          <span style="font-family: sans-serif;"><i class="fas fa-home fa-lg"></i></span>Inicio
-        </a>
-      </li>
 
-           
+            <li class="nav-item me-3 me-lg-1 active">
+              <a class="nav-link" href="{% url 'farmacia:listar_farmacias_2' %}">
+                <span style="font-family: sans-serif;"><i class="fas fa-home fa-lg"></i></span>Inicio
+              </a>
+            </li>
+
+
 
 
             <li class="nav-item">
@@ -88,7 +88,7 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'farmacia:lista_farmacias' %}">Farmacias</a>
             </li>
-                 
+
             <li class="nav-item">
               <a class="nav-link" href="{% url 'farmacia:especificacion_pc'%}">PC</a>
             </li>
@@ -97,37 +97,37 @@
               <a class="nav-link" href="#">Script</a>
             </li>
 
-            
+
 
 
           </ul>
-          
-            <!-- Center elements -->
-    <ul class="navbar-nav flex-row d-none d-md-flex">
-      
-      
 
-      
+          <!-- Center elements -->
+          <ul class="navbar-nav flex-row d-none d-md-flex">
 
-    
 
-     
-    </ul>
-    <!-- Center elements -->
 
-            <li class="nav-item">
-              <span>
-                <i class="far fa-user"></i>
-                <a >{{user.username}}</a>
-              </span>
-              
-            </li>
+
+
+
+
+
+          </ul>
+          <!-- Center elements -->
+
+          <li class="nav-item">
+            <span>
+              <i class="far fa-user"></i>
+              <a>{{user.username}}</a>
+            </span>
+
+          </li>
           <div>
             <a class="nav-link" href="{% url 'logout' %}"><button class="btn btn-dark">Salir</button></a>
           </div>
 
 
-        
+
         </div>
       </nav>
 
@@ -172,29 +172,41 @@
 
         {% block body %}
         <h1 style="text-align: center;">Sistema de Relevamiento JUFEC</h1>
-        <br>
-        <h3 style="text-align: center;">Objetivos</h3>
-        <p style="margin: 50px;">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem, obcaecati odio nam fuga distinctio nobis
-          eum, tempora nemo aliquam aut perspiciatis repudiandae quaerat quibusdam unde ullam excepturi pariatur eos
-          odit.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio magnam sit ipsum dolor quas, earum
-          quasi doloribus optio. Eos perferendis, earum obcaecati explicabo dolore magni suscipit ipsam doloremque
-          mollitia libero.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, itaque. Sed iste molestiae qui et
-          distinctio a velit eligendi harum reiciendis provident, dolorem sapiente. Illum velit quam asperiores saepe
-          sint.
-        </p>
+    
+        <h3 style="text-align: center;">Bienvenido</h3>
+       
+
+        <div class="container">
+          <div class="row">
+            <div class="botones">
+              <div class="d-flex justify-content-center">
+
+                <button type="button" class="btn btn-primary btn-lg">Lista de farmacias</button>
+              </div>
+              <br>
+              <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-primary btn-lg">Provincias</button>
+              </div>
+              <br>
+              <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-primary btn-lg">Script</button>
+              </div>
+              <br>
+              <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-primary btn-lg">Programas</button>
+              </div>
+              <br>
 
 
-
-        <div style="text-align: center;margin-bottom: 30px;">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/zr31k9ivjR8" title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+            </div>
+          </div>
         </div>
-        {% endblock body %}
+      </div>
+
+
+      
+
+      {% endblock body %}
 
       </div>
   </main>

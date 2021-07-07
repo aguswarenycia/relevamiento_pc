@@ -23,8 +23,7 @@
     {% if provincias %}
 
     <div class="table-responsive-sm">
-         <a href="{% url 'farmacia:listar_provincias' %}"><button class="btn btn-success" style="margin-bottom: 10px;">Volver</button></a>
-        <table class="table table-light table-striped table-hover">
+<a href="javascript:history.back()"><button type="submit" class="btn btn-primary">Volver</button></a>        <table class="table table-light table-striped table-hover">
           <thead>
                                   
               <tr  class="table-success">
@@ -42,7 +41,7 @@
                 <td>
                     <a href="{% url 'farmacia:activar_provincia' prov.id_provincia %}" > 
                     <button class="btn btn-danger">Activar</button></a>
-                    {% comment %} <a href="{% url 'farmacia:actualizar_provincia' prov.id_localidad %}" > <button class="btn btn-success">Activar</button></a> {% endcomment %}
+                    
                 </td>
                 
             </tr>
@@ -55,7 +54,6 @@
         </tbody>
         </table>
     </div>
-    <!-- <button type="submit" class="btn btn-success">Agregar nueva Provincia</button> -->
 </main>
 {% endblock body %}
     

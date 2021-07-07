@@ -27,14 +27,27 @@
                 </div>
 
                 {% if fcias %}
-
+            </div>
+            <div class="row d-flex justify-content-center ">
+                    <div class="col-md-9">
+                    <form action="{% url 'farmacia:buscar_fcia' %}" method="GET">
+                        {% csrf_token %}
+                            <div class="input-group col-sm-18">
+                                <input type="text" class="form-control" placeholder="Buscar" name="q">
+                                <span class="input-gruop-list">
+                                    <button type="submit" class="btn btn-info"><i
+                                            class="fas fa-search fa-sm"></i></button>
+                                </span>
+                            </div>  
+                    </form>
+                    </div>
+                </div>   
                 <div style="margin: 50px;" class="table-responsive-sm">
                   
 
                     
                     
-                    <a href="#"><button class="btn btn-success" style="margin-bottom: 10px;">Volver</button></a>
-                    <div class="table-responsive-sm">
+<a href="javascript:history.back()"><button type="submit" class="btn btn-primary">Volver</button></a>                    <div class="table-responsive-sm">
                         <table class="table table-light table-striped table-hover">
                             
                             <thead>
@@ -69,9 +82,24 @@
          
 
                     {% else %}
-                    <br>
-                    <br>
-                    <h2 style="text-align: center">No hay Farmacias para mostrar</h2>
+      <h2 style="text-align:center;">No hay Farmacias para mostrar</h2>
+       
+                                <div class="row d-flex justify-content-center ">
+                                
+                    <div class="col-md-9">
+                    <div style="text-align:left;">
+                    <a href="javascript:history.back()"><button class="btn btn-primary" style="margin-bottom: 10px;">Volver</button></a>
+                    </div>
+                    <form action="{% url 'farmacia:buscar_fcia' %}" method="GET">
+                        {% csrf_token %}
+                            <div class="input-group col-sm-18">
+                                <input type="text" class="form-control" placeholder="Buscar" name="q">
+                                <span class="input-gruop-list">
+                                    <button type="submit" class="btn btn-info"><i
+                                            class="fas fa-search fa-sm"></i></button>
+                                </span>
+                            </div>  
+                   
                     
                     {% endif %}
                 </div>

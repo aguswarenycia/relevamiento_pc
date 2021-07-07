@@ -3,6 +3,8 @@
 from django.urls import path
 
 from django.contrib.auth.decorators import login_required
+from django.views.generic.base import View
+from . import views
 # from django.urls import reverse_lazy
 from .views import (
     vista_PC,
@@ -26,7 +28,10 @@ from .views import (
     ListarLoc,
     ListarProgDesactivados,
     vista_PC,
-    vista_programas
+    vista_programas,
+    BuscarFcia,
+    ListadoProgramasActivos,
+    total_prog
 )
 
 urlpatterns = [
@@ -54,5 +59,7 @@ urlpatterns = [
 
     path('listar_farmacias_2/',login_required(ProbandoLista.as_view()), name = 'listar_farmacias_2'),
     path('especificacion_pc/',login_required(vista_PC.as_view()), name = 'especificacion_pc'),
-    path('programas/',login_required(vista_programas.as_view()), name = 'programas'),
+    path('programas/',login_required(vista_programas.as_view(), ListadoProgramasActivos.as_view(), views.total_prog), name = 'programas'),
+    path('buscar_fcia/',login_required(BuscarFcia.as_view()), name = 'buscar_fcia'),
+
 ] 

@@ -83,7 +83,7 @@ background-size: cover;
 
 .main {
   padding: 0px 50px;
-  /*position: relative;*/
+  position: relative;
   
 }
 
@@ -493,7 +493,14 @@ div.content {
   color: #fff;
   }
 
-  /*Para la barra de navegacion*/
+  /*Para los botones uno abajo del otro*/
+
+  .botones .btn-primary{
+  display: block !important;
+  text-align: center;
+  
+  
+}
 
   
 

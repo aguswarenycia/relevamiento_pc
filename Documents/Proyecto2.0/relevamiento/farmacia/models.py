@@ -2,6 +2,8 @@ from django.db import models
 from django.db.models.base import Model
 from django.db.models.fields import CharField
 from django.forms.models import model_to_dict
+from django.db.models.functions import Length
+
 
 # Create your models here.
 program_status = [(0,"Desactivar"),(1,"Activar")]
@@ -156,3 +158,6 @@ class Fcia(models.Model):
     class Meta:
         verbose_name = 'Fcia'
         verbose_name_plural = 'Fcias'
+
+
+    

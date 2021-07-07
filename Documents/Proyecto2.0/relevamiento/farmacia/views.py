@@ -1,6 +1,10 @@
 #from relevamiento.farmacia.models import Farmacia
+from django.db.models.query import QuerySet
+from django.shortcuts import render
+from django.http import request
 from django.views.generic.edit import CreateView
 from .forms import LocalidadForm, ProgramaForm, ProvinciaForm, ProgramaActForm, ProvinciaActForm,  LocalidadActForm
+from django.db.models import Count
 
 from .models import Farmacia, Fcia, Programa, Provincia, Localidad, Pc_Farmacia
  #import de las vistas basadas en clases
@@ -12,6 +16,9 @@ from django.views.generic import (
                                 DeleteView) #Vista basada en clase para renderizar un template de Borrado
 from django.urls import reverse_lazy
 
+
+
+ 
 # Vista basada en clase para renderizar un template simple
 class Inicio(TemplateView):
     template_name = 'index.html'
@@ -206,3 +213,36 @@ class vista_programas(ListView):
     template_name = 'farmacia/programas_pc.html'
     context_object_name = 'programas'
     queryset = Programa.objects.all()
+
+
+
+class BuscarFcia(ListView):
+    model = Fcia
+    template_name = 'farmacia/listar_farmacias.html'
+    context_object_name = 'fcias'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        return Fcia.objects.filter(nombre_facia__icontains=query) or Fcia.objects.filter(id_localidad__descripcion__icontains=query) or Fcia.objects.filter(id_localidad__id_provincia_id__descripcion__icontains=query)
+
+
+#Para mmostrar la cantiad de programas activados 
+
+class ListadoProgramasActivos(ListView):
+    model = Programa
+    template_name = 'farmacia/programas_pc.html'
+    context_object_name = 'prog_act'
+
+    def get_queryset(self):
+        return   Programa.objects.filter(estado='1').count()
+
+
+        #Entry.objects.filter(headline__contains='Lennon').count()
+#def lista_activados_prog(request):
+ #   prog = Programa.objects.filter(estado__icontains='1')
+  #  contexto = {'programas':prog}
+  #  return render(request, 'farmacia/programas_pc.html', contexto)
+
+def total_prog(request):
+    total = Programa.objects.all()
+    return render(request, 'programas_pc.html', {"Programa": total})

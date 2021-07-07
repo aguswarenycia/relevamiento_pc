@@ -1,81 +1,105 @@
  {% extends 'index.html' %}
-{% load mathfilters %}
-<!DOCTYPE html>
-<html lang="en">
+ {% load mathfilters %}
+ <!DOCTYPE html>
+ <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <title>
-        {% block titulo %}
-            Programas
-        {% endblock titulo %}
-
-    </title>
-</head>
-
-<body>
-    <main>
-        {% block body %}
-        <div class="container">
-            <h1 style="text-align:center;">Programas de la PC "Nombre de la PC"</h1>
-            <div class="table-responsive-sm"></div>
-            {% with alpha=1 %}
-            <table class="table table-light   table-bordered border-dark">
-                <thead>
-                    <tr class="table-success">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-                        <th style="text-align:left;">Programas Instalados - Fecha: 2021-06-23 </th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        
-                    </tr>
-                <h1>Contador: {{alpha}} </h1>
-                {% for  programa in programas %}
-                 {{ alpha|addition:"1" }}
-                </thead>
-                <tbody>
-                <tr class="table-info">
-                    <th>NOMBRE DE LA PC:</th>
-                    <th>DESKTOP-A920KM3</th>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="table-secondary">
-                    <th>Programa</th>
-                    <th>Version</th>
-                    <th>Fecha de instalacion</th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <td>{{programa.nombre}}</td>
-                    <td>{{programa.version}}</td>
-                    <td>{{programa.fecha_install}}</td>
-                   <td></td>
-                </tr>
-            
-            {% endfor %}
-            
-<!-- ---------------------------Estas filas y columnas son para ejemplos--------------------------------- -->
+     <title>
+         {% block titulo %}
+         Programas
+         {% endblock titulo %}
 
-                <tfoot>
-                    <tr>
-                        <th>Total</th>
-                        <td>{{alpha}}</td>
-                        <th>Estado</th>
-                        <td>Programas Correctos</td>
-                    </tr>
-                </tfoot>
-             {% endwith %}
-            </table>
-        </div>
-        {% endblock body %}
-    </main>
-</body>
+     </title>
+ </head>
 
-</html>
+ <body>
+     <main>
+         {% block body %}
+         <div class="container">
+             <h1 style="text-align:center;">Programas de la PC "Nombre de la PC"</h1>
+             <div class="table-responsive-sm"></div>
+             {% if  programas %}
+
+
+             <table class="table table-light   table-bordered border-dark">
+                 <thead>
+                     <tr class="table-success">
+
+
+                         <th style="text-align:left;">Programas Instalados - Fecha: 2021-06-23 </th>
+                         <th>NOMBRE DE LA PC:</th>
+                         <th>DESKTOP-A920KM3</th>
+                         <th> </th>
+
+
+
+
+                     </tr>
+{% with suma="0" %}     
+
+                     {% for  programa in programas %}
+                     {% if programa.estado == 1 %}
+
+
+                 </thead>
+                 <tbody>
+                     <tr class="table-info">
+                         <th></th>
+                         <th></th>
+                         <td></td>
+                         <td></td>
+                     </tr>
+                     <tr class="table-secondary">
+                         <th>Programa</th>
+                         <th>Version</th>
+                         <th>Fecha de instalacion</th>
+                         <th> </th>
+                     </tr>
+                     <tr>
+                         <td>{{programa.nombre}}</td>
+                         <td>{{programa.version}}</td>
+                         <td>{{programa.fecha_install}}</td>
+                         <td></td>
+                     </tr>
+
+                     {% endif %}
+                     {% endfor %}
+
+
+                 <tfoot>
+                     <tr>
+                         <th> Total</th>
+
+                         <th>
+                            {{ Actv|length }}
+                            {{ Actv }}
+                             {% if programa %}
+                             <h1>a </h1>
+                             {{ Actv|length }}
+                                                    
+                             {{ Actv }}
+
+                             {% endif %}
+                         </th>
+                         <th>Estado</th>
+                         <td>
+                         </td>
+
+                     </tr>
+
+                 </tfoot>
+                 {% endif %}
+             </table>
+         </div>
+{% endwith %}
+
+         {% endblock body %}
+     </main>
+ </body>
+
+ </html>
