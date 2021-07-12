@@ -2,8 +2,6 @@ from django.db import models
 from django.db.models.base import Model
 from django.db.models.fields import CharField
 from django.forms.models import model_to_dict
-from django.db.models.functions import Length
-
 
 # Create your models here.
 program_status = [(0,"Desactivar"),(1,"Activar")]
@@ -105,6 +103,9 @@ class Localidad(models.Model):
         verbose_name_plural = 'localidades'
 
         
+
+
+
 # Tabla para Farmacias
 
 class Fcia(models.Model):
@@ -152,7 +153,7 @@ class Pc_Farmacia (models.Model):
     procentaje_disponible_D = models.CharField("porcentaje_disponible_D", max_length = 256, null = True, blank = True)#agregado
     AnyDesk_instalado = models.CharField("any_instalado", max_length = 256, blank = True, null = True)
     id_AnyDesk = models.CharField("any_instalado", max_length = 256, blank = True, null = True)
-
+    
     def __str__(self):
         return str(self.nombre_pc)
 
@@ -161,4 +162,15 @@ class Pc_Farmacia (models.Model):
         verbose_name_plural = 'computadoras'
 
 
+
+class Programas_instalados(models.Model):
+    programa_id = models.IntegerField(primary_key=True)
+    nombre = models.CharField("Nombre del Programa", max_length = 100, null = False, blank = False)
+    versio = models.CharField("Nombre del Programa", max_length = 100, null = False, blank = True)
+    fecha_install = models.DateField(auto_now=False, auto_now_add=False,null = False, blank = False)
+    def __str__(self):
+        return self.nombre
     
+    class Meta:
+        verbose_name = 'Programa_pc'
+        verbose_name_plural = 'Programas_pc'
