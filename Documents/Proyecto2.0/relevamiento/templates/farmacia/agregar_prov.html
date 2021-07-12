@@ -28,7 +28,9 @@ Agregar provincia
                     {{form|crispy}}
 
                     <button type="submit" class="btn btn-success btn-lg">Crear</button>
-                    <a type="button" class="btn btn-primary btn-lg" href="{% url 'farmacia:lista_prov_desactivadas' %}">Cancelar</a>
+                    <!--<a type="button" class="btn btn-primary btn-lg" href="{% url 'farmacia:lista_prov_desactivadas' %}">Cancelar</a>-->
+                    <a type="button" class="btn btn-primary btn-lg" href="{% url 'farmacia:listar_provincias' %}">Cancelar</a>
+
                     {% endif %}
                 </div> <!-- Pintar html en sintaxis de Django-->
             
