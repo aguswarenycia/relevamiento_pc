@@ -1,4 +1,4 @@
-{% extends 'index.html' %}
+ {% extends 'index.html' %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,24 +21,20 @@
         {% block body %}
         <div class="container">
             
-            
-            <h1 style="text-align:center;">PCs de la Farmacia "nombre de la farmacia"</h1>
+            {% if computadoras %}
             <div class="table-responsive-sm"></div>
-            
-            <a href="javascript:history.back()"><button type="submit" class="btn btn-primary">Volver</button></a>
-
-                <br>
-                <br>
-
             <table class="table table-light  table-hover table-bordered border-dark">
                 <thead>
                 {% for pc in computadoras %}
-                
+                    {% comment %} <h1 style="text-align:center;">PCs de la Farmacia {{pc.farmacia_id.nombre_facia}}</h1>     {% endcomment %}
+                    <div style="margin-top: 30px; margin-bottom: 10px;">
+                    <button class="btn btn-success"><a style="color: cornsilk; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" href="#">nuevo relevamiento</a></button>
+                    </div>
                     <tr class="table-success">
                         <th></th>
                 
                         <th style="text-align:left;">Relevamiento - Fecha: </th>
-                        <th>{{ pc.fehca_relevamiento }}</th>
+                        <th>{{ pc.fecha_relevamiento }}</th>
                         <th></th>
                         
                     </tr>
@@ -76,6 +72,7 @@
                         <th>INFORMACION IP</th>
                         <th></th>
                         <th></th>
+                        
                     </tr>
                     <tr>
                         <th>IP privada:</th>
@@ -139,7 +136,7 @@
                         <th>Memoria RAM usada: </th>
                         <th>Memoria RAM disponible:</th>
                         <th>Porsentaje de memoria RAM usado:</th>
-                        
+                      
                     </tr>
                     <tr>
                         <td> {{pc.RAM_tot}}</td>
@@ -155,7 +152,7 @@
                         <th>MEMORIA EN DISCO</th>
                         <th></th>
                         <th></th>
-                        
+                       
                     </tr>
                     <tr class="table-secondary">
                         <th></th>
@@ -198,15 +195,7 @@
                         <td>{{pc.espacio_disponible_C}}</td>
                         <td>{{pc.procentaje_disponible_C}}</td>
                     </tr>
-                    <tr class="table-danger">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        
-                    </tr>
                 </tbody>
-               
                 
             
             {% endfor %}
@@ -215,7 +204,19 @@
         </div>
         
         </div>
-         
+        
+        {% else %}
+
+        <h1 style="text-align:center;">no hay pc para mostrar</h1>
+
+        <div style="text-align:center;">
+        <a href="javascript:history.back()"><button class="btn btn-primary" style="margin-bottom: 10px;">Volver</button></a>
+        </div>
+        {% endif %}
+        
+        
+
+
         {% endblock body %}
     </main>
 </body>

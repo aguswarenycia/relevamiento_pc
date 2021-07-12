@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AddField(
             model_name='pc_farmacia',
-            name='fehca_relevamiento',
+            name='fecha_relevamiento',
             field=models.DateField(blank=True, null=True, verbose_name='Fecha-Relevamiento'),
         ),
     ]

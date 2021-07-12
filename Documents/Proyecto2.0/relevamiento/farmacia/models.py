@@ -105,11 +105,30 @@ class Localidad(models.Model):
         verbose_name_plural = 'localidades'
 
         
+# Tabla para Farmacias
+
+class Fcia(models.Model):
+
+    id_farmacia = models.IntegerField("id_farmacia", null = False, blank = False, primary_key=True)
+    nombre_facia = models.CharField("nombre_farmacia", max_length = 256, null = False, blank  = False)
+    direccion = models.CharField("direccion", max_length = 256, null = False, blank = False)
+    id_localidad = models.ForeignKey(Localidad, on_delete = models.CASCADE)
+    #ip = models.ForeignKey(Pc_Farmacia, on_delete = models.CASCADE)
+    ip = models.CharField(max_length=256, blank=True,null=True,default="192.168.0.")
+
+    def __str__(self):
+        return self.nombre_facia
+
+    class Meta:
+        verbose_name = 'Fcia'
+        verbose_name_plural = 'Fcias'
+
 
 # Tabla para las PC
 
 class Pc_Farmacia (models.Model):
-    fehca_relevamiento = models.DateField("Fecha-Relevamiento", null = True, blank = True)
+    farmacia = models.ForeignKey(Fcia, on_delete=models.CASCADE, null=True)#cambio para filtro de computadoras por farmacia
+    fecha_relevamiento = models.DateField("Fecha-Relevamiento", null = True, blank = True)#agregado    
     ip = models.CharField("IP", primary_key=True, max_length = 256, null = False, blank = False)
     nombre_pc = models.CharField("nombre_pc", max_length = 256, blank = True, null = True)
     ip_publica = models.CharField("ip_publica", max_length = 256, blank = True, null = True)
@@ -140,24 +159,6 @@ class Pc_Farmacia (models.Model):
     class Meta:
         verbose_name = 'computadora'
         verbose_name_plural = 'computadoras'
-
-# Tabla para Farmacias
-
-class Fcia(models.Model):
-
-    id_farmacia = models.IntegerField("id_farmacia", null = False, blank = False, primary_key=True)
-    nombre_facia = models.CharField("nombre_farmacia", max_length = 256, null = False, blank  = False)
-    direccion = models.CharField("direccion", max_length = 256, null = False, blank = False)
-    id_localidad = models.ForeignKey(Localidad, on_delete = models.CASCADE)
-    #ip = models.ForeignKey(Pc_Farmacia, on_delete = models.CASCADE)
-    ip = models.ForeignKey(Pc_Farmacia,blank=True,null=True,default="192.168.0.", on_delete = models.CASCADE)
-
-    def __str__(self):
-        return self.nombre_facia
-
-    class Meta:
-        verbose_name = 'Fcia'
-        verbose_name_plural = 'Fcias'
 
 
     

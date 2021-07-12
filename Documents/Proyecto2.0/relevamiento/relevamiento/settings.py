@@ -37,6 +37,8 @@ LOGOUT_REDIRECT_URL = 'farmacia:listar_farmacias_2'  #'index'
 
 
 INSTALLED_APPS = [ #aplicaciones instaladas del proyecto si se crea una nueva aplicación se debe instalar desde aca
+    'crispy_forms',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +48,9 @@ INSTALLED_APPS = [ #aplicaciones instaladas del proyecto si se crea una nueva ap
     'farmacia',
     'mathfilters',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

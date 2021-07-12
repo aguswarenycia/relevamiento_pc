@@ -1,4 +1,6 @@
 {% extends 'index.html' %}
+{% load crispy_forms_tags %}
+
 
 {% block title %}
 Agregar provincia
@@ -22,7 +24,8 @@ Agregar provincia
                     {% if error %}
                     <h2>{{ error }}</h2>
                     {% else %}
-                    {{form.as_p}}
+<!--                    {{form.as_p}}-->
+                    {{form|crispy}}
 
                     <button type="submit" class="btn btn-success btn-lg">Crear</button>
                     <a type="button" class="btn btn-primary btn-lg" href="{% url 'farmacia:lista_prov_desactivadas' %}">Cancelar</a>

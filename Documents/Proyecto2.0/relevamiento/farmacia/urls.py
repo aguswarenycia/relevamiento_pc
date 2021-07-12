@@ -31,7 +31,9 @@ from .views import (
     vista_programas,
     BuscarFcia,
     ListadoProgramasActivos,
-    total_prog
+    total_prog,
+    vista_PC
+    
 )
 
 urlpatterns = [

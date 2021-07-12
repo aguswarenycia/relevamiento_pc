@@ -246,3 +246,18 @@ class ListadoProgramasActivos(ListView):
 def total_prog(request):
     total = Programa.objects.all()
     return render(request, 'programas_pc.html', {"Programa": total})
+
+
+class vista_PC(ListView):
+    model = Pc_Farmacia
+    template_name = 'farmacia/especificacion_pc.html'
+    context_object_name = 'computadoras'
+    queryset = Pc_Farmacia.objects.all()
+    
+
+    def get_queryset(self):
+        qs = Pc_Farmacia.objects.all() # qs igual
+        farmacia = self.request.GET.get("lang")
+        if farmacia:
+            qs = qs.filter(farmacia_id = farmacia)
+        return qs
