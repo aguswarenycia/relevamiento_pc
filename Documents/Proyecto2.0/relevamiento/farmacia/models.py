@@ -165,12 +165,25 @@ class Pc_Farmacia (models.Model):
 
 class Programas_instalados(models.Model):
     programa_id = models.IntegerField(primary_key=True)
+    pc = models.ForeignKey(Pc_Farmacia, on_delete=models.CASCADE, null=True)
     nombre = models.CharField("Nombre del Programa", max_length = 100, null = False, blank = False)
-    versio = models.CharField("Nombre del Programa", max_length = 100, null = False, blank = True)
-    fecha_install = models.DateField(auto_now=False, auto_now_add=False,null = False, blank = False)
+    version = models.CharField("Nombre del Programa", max_length = 100, null = False, blank = True)
+    #fecha_install = models.DateField(auto_now=False, auto_now_add=False,null = False, blank = False)
+    fecha_rel = models.DateField("Fecha-Relevamiento", null = True, blank = True)
+
+    fecha_install = models.CharField("Fecha de isntalación", max_length = 256, null = False, blank = False)
     def __str__(self):
         return self.nombre
     
     class Meta:
         verbose_name = 'Programa_pc'
         verbose_name_plural = 'Programas_pc'
+
+
+class Cantidad_Programas(models.Model):
+    id = models.IntegerField(primary_key=True)
+    tabla_programas = models.ForeignKey(Programas_instalados,on_delete=models.CASCADE,null=True)
+    cantidad = models.IntegerField("cantidad de programas", null=False, blank=False)
+
+    class Meta:
+        verbose_name = 'cantidad_programas'
