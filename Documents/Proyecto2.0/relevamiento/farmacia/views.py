@@ -204,9 +204,18 @@ class vista_programas(TemplateView):
 
 class vista_PC(ListView):
     model = Pc_Farmacia
+    second_model = Fcia
     template_name = 'farmacia/especificacion_pc.html'
     context_object_name = 'computadoras'
-    queryset = Pc_Farmacia.objects.all()
+    #queryset = Pc_Farmacia.objects.select_related().all()
+    
+
+    def get_queryset(self):
+        qs = Pc_Farmacia.objects.select_related('farmacia').all() # qs igual
+        farmacia = self.request.GET.get("lang")
+        if farmacia:
+            qs = qs.filter(farmacia_id = farmacia)
+        return qs
 
 class vista_programas(ListView):
     model = Programa

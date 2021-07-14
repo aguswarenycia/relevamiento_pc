@@ -504,14 +504,3 @@ div.content {
     background-color: #FB7E29;
     color: #fff;
     }
-
-    /*------------Para editar los archivos boostrap de crispy*/
-
-    #pa-cambiar h1{
-      font-family: Arial, Helvetica, sans-serif;
-      
-    }
-
-    #tamanio_formulario{
-      width: 30%;
-    }
