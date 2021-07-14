@@ -23,13 +23,13 @@
         
     {% block body %}
 
-        <div class="content">
+        <div class="col-auto text-center ">
             <div class="container">
                 <div class="well">
                     <h1>Agregar Programa</h1>
                 </div>
                 
-              <a type="button" class="btn btn-primary btn-lg" href="{% url 'farmacia:lista_programas' %}">Cancelar</a>
+              
                 <br>
 
                 <div class="container-form">
@@ -43,16 +43,22 @@
                                         <h2>{{error}}</h2>
                                     {% else %}
                                     <!--                    {{form.as_p}}-->
-                    {{form|crispy}}
+                   <div  class="mx-auto" style="width: 300px;">
+                        {{form|crispy}}
+                    </div>
 
 
                                     <button type="submit" class="btn btn-success btn-lg">Crear</button>
+                                    <a type="button" class="btn btn-primary btn-lg" href="{% url 'farmacia:lista_programas' %}">Cancelar</a>
+                                    
                                 {% endif %}
                                 </div>
                             </div>
+                            <br>
                             </fieldset>
                             </form>
                         </div>
+                        <br>
                     </div>
                 </div>
             </div>

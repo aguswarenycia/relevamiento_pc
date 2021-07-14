@@ -33,7 +33,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   {% endblock extraJS %}
 
   <title>
@@ -174,41 +174,46 @@
 
         {% block body %}
         <h1 style="text-align: center;">Sistema de Relevamiento JUFEC</h1>
-    
+
         <h3 style="text-align: center;">Bienvenido</h3>
-       
+
 
         <div class="container">
           <div class="row">
-            <div class="botones">
-              <div class="d-flex justify-content-center">
+            
 
-                <button type="button" class="btn btn-primary btn-lg">Lista de farmacias</button>
-              </div>
-              <br>
-              <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-primary btn-lg">Provincias</button>
-              </div>
-              <br>
-              <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-primary btn-lg">Script</button>
-              </div>
-              <br>
-              <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-primary btn-lg">Programas</button>
-              </div>
-              <br>
+              <div class="m-0 row justify-content-center">
+                <div class="col-auto  p-5 text-center">
+
+                  <div class="d-flex justify-content-center">
+                    <button type="button" class="btn-block btn-dark btn-lg">Lista de farmacias</button>
+                  </div>
+                  <br>
+                  <div class="d-flex justify-content-center">
+                    <button type="button" class="btn-block  btn-dark btn-lg">Provincias</button>
+                  </div>
+                  <br>
+                  <div class="d-flex justify-content-center">
+                    <button type="button" class="btn-block btn-dark btn-lg">Script</button>
+                  </div>
+                  <br>
+                  <div class="d-flex justify-content-center">
+                    <button type="button" class="btn-block btn-dark btn-lg">Programas</button>
+
+                  </div>
+                </div>
+                <br>
 
 
+              
             </div>
           </div>
         </div>
-      </div>
 
 
-      
 
-      {% endblock body %}
+
+        {% endblock body %}
 
       </div>
   </main>

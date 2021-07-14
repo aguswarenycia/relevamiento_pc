@@ -23,13 +23,15 @@
      <div style="background-color: rgb(200, 233, 248);"class="sidenav">
         
      </div>
-    <div class="main">
+    <div class="main col-auto text-center">
         <div>
             <div class="login-form">
              <h2>Acceso para el personal</h2>
                <form method="POST">
                   {% csrf_token %}
-                  {{ form|crispy }}
+                  <div  class="mx-auto" style="width: 300px;">
+                        {{form|crispy}}
+                    </div>
                   <button style="margin-top: 30px;" type="submit" class="btn btn-success">Entrar</button>
                </form>
             </div>
