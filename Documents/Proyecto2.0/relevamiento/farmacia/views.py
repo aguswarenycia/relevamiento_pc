@@ -37,7 +37,7 @@ class ListarLoc(ListView):
     
     # Redefinicion del metodo get_queryset para realizar la consulta de filtro de ciudad por provincia
     def get_queryset(self):
-        qs = Localidad.objects.all() # qs igual
+        qs = Localidad.objects.select_related('id_provincia_id').all() # qs igual
         provincia = self.request.GET.get("lang")
         if provincia:
             qs = qs.filter(id_provincia_id = provincia)
@@ -269,4 +269,17 @@ class vista_PC(ListView):
         farmacia = self.request.GET.get("lang")
         if farmacia:
             qs = qs.filter(farmacia_id = farmacia)
+        return qs
+
+class ListarFciasNav(ListView):
+    model = Fcia
+    template_name = 'farmacia/lista_farmacias_nav.html'
+    context_object_name = 'fcias'
+    # Redefinicion del metodo get_queryset para realizar la consulta de filtro de farmacia por ciudad
+    def get_queryset(self):
+        qs = Fcia.objects.select_related('id_localidad').all() # trago todas las farmacias
+        farmacia = self.request.GET.get("lang")
+        #Cambair esta parte del codigo para que compare el id de provincia con el de localidad y desp con el de farmacia
+        if farmacia:
+            qs = qs.filter(id_localidad = farmacia)
         return qs

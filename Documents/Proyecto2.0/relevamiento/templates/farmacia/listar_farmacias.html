@@ -17,15 +17,19 @@
 <body>
     <main>
         {% block body %}
-
         <div class="container">
-
-
             <div class="container">
+                {% block tituloh1 %}
+                {% for far in  fcias|slice:":1" %}
                 <div class="well">
-                    <h1 id="tituloListas">Farmacias de la Localidad "nombre de la localidad"</h1>
+                    <h1 id="tituloListas">Farmacias de {{far.id_localidad.descripcion}}</h1>
                 </div>
 
+                {% endfor %}
+                {% endblock tituloh1 %}
+
+                {% block contenido %}
+                {% comment %} {% endcomment %}
                 {% if fcias %}
             </div>
             <div class="row d-flex justify-content-center ">
@@ -42,60 +46,49 @@
                 </div>
             </div>
             <div style="margin: 50px;" class="table-responsive-sm">
+                <br>
+                <br>
+                <a href="javascript:history.back()"><button class="btn btn-primary"
+                        style="margin-bottom: 10px;">Volver</button></a>
 
-
-
-
-                <a href="javascript:history.back()"><button type="submit" class="btn btn-primary">Volver</button></a>
-                <div class="table-responsive-sm">
-                    <table class="table table-light table-striped table-hover">
-
-                        <thead>
-
-                            <tr class="table-success">
-
-                                <th>ID Farmacia</th>
-                                <th>Nombre de la Fcia</th>
-                                <th>Dirección</th>
-                                <th>IP</th>
-                                <th>PC's</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            {% for far in fcias %}
-
-                            <tr>
-                                <td>{{far.id_farmacia}}</td>
-                                <td>{{far.nombre_facia}}</td>
-                                <td>{{far.direccion}}</td>
-                                <td>{{far.ip}}</td>
-                                <td>
-                                        <a class="button"  href="{% url 'farmacia:especificacion_pc' %}?lang={{far.id_farmacia}}"><span class="fas fa-desktop"></span></a>                                               
-                                    </td> 
-                                
-
-
-                               
-
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+                <div class="tab">
+                    <div class="table-responsive-sm">
+                        <table class="table table-light table-striped table-hover">
+                            <thead>
+                                <tr class="table-success">
+                                    <th>ID Farmacia</th>
+                                    <th>Nombre de la Fcia</th>
+                                    <th>Dirección</th>
+                                    <th>ip</th>
+                                    <th>PCs</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for far in fcias %}
+                                <tr>
+                                    <td>{{far.id_farmacia}}</td>
+                                    <td>{{far.nombre_facia}}</td>
+                                    <td>{{far.direccion}}</td>
+                                    <td>{{far.ip}}</td>
+                                    <td>
+                                        <a class="button"
+                                            href="{% url 'farmacia:especificacion_pc' %}?lang={{far.id_farmacia}}"><span
+                                                class="fas fa-desktop"></span></a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-
-
-
                 {% else %}
                 <h2 style="text-align:center;">No hay Farmacias para mostrar</h2>
-
+                <div style="text-align:center;">
+                                <a href="{% url 'farmacia:listar_provincias' %}"><button class="btn btn-primary"
+                                        style="margin-bottom: 10px;">Volver</button></a>
+                            </div>
                 <div class="row d-flex justify-content-center ">
-
                     <div class="col-md-9">
-                        <div style="text-align:left;">
-                            <a href="javascript:history.back()"><button class="btn btn-primary"
-                                    style="margin-bottom: 10px;">Volver</button></a>
-                        </div>
                         <form action="{% url 'farmacia:buscar_fcia' %}" method="GET">
                             {% csrf_token %}
                             <div class="input-group col-sm-18">
@@ -105,20 +98,13 @@
                                             class="fas fa-search fa-sm"></i></button>
                                 </span>
                             </div>
-
-
+                            
                             {% endif %}
                     </div>
-
-                    <!--Porque alguien rompio el proyecto-->
-
-
-                    <!--Hasta acá es la nueva tabla-->
+                    {% endblock contenido %}
                     {% endblock body %}
 
-
     </main>
-
 </body>
 
 </html>

@@ -20,7 +20,9 @@
 
         <div class="container">
 
-            <h2 style="text-align: center;">Lista de Ciudades</h2>
+           {% for loc in localidad|slice:"1" %}
+                <h2 style="text-align: center;">Lista de Ciudades de {{loc.id_provincia_id.descripcion}}</h2>
+            {% endfor %}
 
             {% if localidad %}
             <div class="table-responsive-sm">

@@ -504,3 +504,16 @@ div.content {
     background-color: #FB7E29;
     color: #fff;
     }
+/*------------------Para arreglar el login-------------*/
+    .main{
+      position: fixed;
+      float:right;
+      overflow-x: hidden;
+
+
+    }
+
+    /*url("../img/logo.png");*/
+.login100-more{
+  background-image: url('../images/bg-01.jpg');
+}

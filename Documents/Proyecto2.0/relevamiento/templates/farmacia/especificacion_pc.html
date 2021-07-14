@@ -25,10 +25,12 @@
             <div class="table-responsive-sm"></div>
             <table class="table table-light  table-hover table-bordered border-dark">
                 <thead>
-                
+                {% for pc in computadoras|slice:":1" %}
+                    <h1 style="text-align:center;">PCs de la Farmacia {{pc.farmacia.nombre_facia}}</h1>
+                {% endfor %}
                 {% for pc in computadoras %}
-                 <h1 style="text-align:center;">PCs de la Farmacia {{pc.farmacia.nombre_facia}}</h1>
-<div style="margin-top: 30px; margin-bottom: 10px;">
+                 
+                    <div style="margin-top: 30px; margin-bottom: 10px;">
                     <button class="btn btn-success"><a style="color: cornsilk; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" href="#">Nuevo relevamiento</a></button>
                     <button class="btn btn-success"><a style="color: cornsilk; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" href="#">Ver programas</a></button>
                     </div>

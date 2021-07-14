@@ -7,6 +7,7 @@ from django.views.generic.base import View
 from . import views
 # from django.urls import reverse_lazy
 from .views import (
+    ListarFciasNav,
     vista_PC,
     ActivarLocalidad,
     ProbandoLista,
@@ -63,5 +64,6 @@ urlpatterns = [
     path('especificacion_pc/',login_required(vista_PC.as_view()), name = 'especificacion_pc'),
     path('programas/',login_required(vista_programas.as_view(), ListadoProgramasActivos.as_view(), views.total_prog), name = 'programas'),
     path('buscar_fcia/',login_required(BuscarFcia.as_view()), name = 'buscar_fcia'),
+    path('lista_farmacias_nav/',login_required(ListarFciasNav.as_view()), name = 'lista_farmacias_nav'),
 
 ] 
