@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+
+
+<style>tbody tr {
+    display : none;
+}
+tr.parent {
+    display : table-row;
+}
+tr.open {
+    display : table-row;
+}
+</style>
+</head>
+<body>
+
+<table id="products">
+    <thead>
+    <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Destination</th>
+        <th>Updated on</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="parent">
+        <td>Oranges</td>
+        <td>100</td>
+        <td><a href="#">+ On Store</a></td>
+        <td>22/10</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>120</td>
+        <td>City 1</td>
+        <td>22/10</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>140</td>
+        <td>City 2</td>
+        <td>22/10</td>
+    </tr>
+    <tr class="parent">
+        <td>Apples</td>
+        <td>100</td>
+        <td><a href="#">+ On Store</a></td>
+        <td>22/10</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>120</td>
+        <td>City 1</td>
+        <td>22/10</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>140</td>
+        <td>City 2</td>
+        <td>22/10</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+
+<script>
+document.getElementById("products").addEventListener("click", function(e) {
+    if (e.target.tagName === "A") {
+        e.preventDefault();
+        var row = e.target.parentNode.parentNode;
+        while ((row = nextTr(row)) && !/\bparent\b/.test(row.className))
+            toggle_it(row);
+    }
+});
+
+function nextTr(row) {
+    while ((row = row.nextSibling) && row.nodeType != 1);
+    return row;
+}
+
+function toggle_it(item){ 
+     if (/\bopen\b/.test(item.className))
+         item.className = item.className.replace(/\bopen\b/," ");
+     else
+         item.className += " open";
+ } 
+</script>
+</html>
